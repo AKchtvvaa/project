@@ -1,1 +1,16 @@
-app.test: 10
+app:
+  test: 10
+  scheduler:
+    interval: 10000
+  github:
+    url: "https://api.github.com"
+  stackoverflow:
+    url: "https://api.stackexchange.com/2.3"
+
+springdoc:
+  swagger-ui:
+    path: "swagger-ui"
+
+management:
+  server:
+    port: 8080

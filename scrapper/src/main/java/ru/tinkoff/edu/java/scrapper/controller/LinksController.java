@@ -7,7 +7,6 @@ import ru.tinkoff.edu.java.scrapper.controller.dto.AddLinkRequest;
 import ru.tinkoff.edu.java.scrapper.controller.dto.LinkResponse;
 import ru.tinkoff.edu.java.scrapper.controller.dto.ListLinksResponse;
 import ru.tinkoff.edu.java.scrapper.controller.dto.RemoveLinkRequest;
-
 import java.util.ArrayList;
 
 @Validated
