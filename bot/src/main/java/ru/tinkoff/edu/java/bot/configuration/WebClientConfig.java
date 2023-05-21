@@ -1,4 +1,4 @@
-package ru.tinkoff.edu.java.scrapper.configuration;
+package ru.tinkoff.edu.java.bot.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -11,12 +11,11 @@ import org.springframework.web.reactive.function.client.ExchangeStrategies;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.support.WebClientAdapter;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
-import ru.tinkoff.edu.java.scrapper.client.GitHubWebClient;
-import ru.tinkoff.edu.java.scrapper.client.StackOverflowWebClient;
+import ru.tinkoff.edu.java.bot.client.ScrapperWebClient;
 
 @RequiredArgsConstructor
 @Configuration
-public class ClientConfig {
+public class WebClientConfig {
     private final ObjectMapper objectMapper;
 
     private WebClient buildWebClient(String url) {
@@ -30,27 +29,16 @@ public class ClientConfig {
                             .defaultCodecs()
                             .jackson2JsonDecoder(new Jackson2JsonDecoder(objectMapper, MediaType.APPLICATION_JSON));
                 }).build();
-
         return WebClient.builder().exchangeStrategies(strategies).baseUrl(url).build();
     }
 
     @Bean
-    public GitHubWebClient gitHubWebClient(ApplicationConfig config) {
-        WebClient webClient = buildWebClient(config.getGitHub().getUrl());
+    public ScrapperWebClient gitHubWebClient(ApplicationConfig config) {
+        WebClient webClient = buildWebClient(config.getScrapper().getUrl());
         HttpServiceProxyFactory httpServiceProxyFactory = HttpServiceProxyFactory
                 .builder(WebClientAdapter.forClient(webClient))
                 .build();
 
-        return httpServiceProxyFactory.createClient(GitHubWebClient.class);
-    }
-
-    @Bean
-    public StackOverflowWebClient stackOverflowWebClient(ApplicationConfig config) {
-        WebClient webClient = buildWebClient(config.getStackOverflow().getUrl());
-        HttpServiceProxyFactory httpServiceProxyFactory = HttpServiceProxyFactory
-                .builder(WebClientAdapter.forClient(webClient))
-                .build();
-
-        return httpServiceProxyFactory.createClient(StackOverflowWebClient.class);
+        return httpServiceProxyFactory.createClient(ScrapperWebClient.class);
     }
 }
