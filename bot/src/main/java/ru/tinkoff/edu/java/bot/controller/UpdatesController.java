@@ -5,7 +5,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import ru.tinkoff.edu.java.bot.dto.LinkUpdateRequest;
+import ru.tinkoff.edu.java.bot.dto.controller.LinkUpdateRequest;
 
 @Validated
 @RestController
@@ -15,5 +15,6 @@ public class UpdatesController {
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
     public void sendUpdates(@RequestBody LinkUpdateRequest request) {
+        // TODO: implement
     }
 }

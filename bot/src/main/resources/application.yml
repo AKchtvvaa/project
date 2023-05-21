@@ -1,7 +1,10 @@
 app:
   test: 10
   bot:
+    name: "bot"
     token: ${BOT_TOKEN}
+  scrapper:
+    url: "localhost"
 
 springdoc:
   swagger-ui:
