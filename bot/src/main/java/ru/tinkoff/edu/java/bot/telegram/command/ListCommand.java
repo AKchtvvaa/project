@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Order(2)
 @Component
-public class List extends AbstractCommand {
+public class ListCommand extends AbstractCommand {
     private final ScrapperWebService webService;
 
     private static final String COMMAND = "/list";
@@ -21,7 +21,7 @@ public class List extends AbstractCommand {
     private static final String EMPTY_LINKS_LIST_MESSAGE =
             "У вас еще нет отслеживаемых ссылок";
 
-    public List(ScrapperWebService webService) {
+    public ListCommand(ScrapperWebService webService) {
         super(COMMAND, DESCRIPTION);
         this.webService = webService;
     }

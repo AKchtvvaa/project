@@ -8,11 +8,11 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 
 @Component
 @Order(1)
-public class Help extends AbstractCommand {
+public class HelpCommand extends AbstractCommand {
     private static final String COMMAND = "/help";
     private static final String DESCRIPTION = "показать список команд";
 
-    public Help() {
+    public HelpCommand() {
         super(COMMAND, DESCRIPTION);
     }
 

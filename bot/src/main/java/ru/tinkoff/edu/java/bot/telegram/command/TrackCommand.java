@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 @Order(4)
 @Slf4j
 @Component
-public class Track extends AbstractCommand {
+public class TrackCommand extends AbstractCommand {
     private final ScrapperWebService webService;
     private static final String COMMAND = "/track";
     private static final String DESCRIPTION = "начать отслеживание";
@@ -20,7 +20,7 @@ public class Track extends AbstractCommand {
     private static final String SUCCESS_RESPONSE = "добавить ссылку в список";
     private static final String WRONG_FORMAT_RESPONSE = "Используйте формат: /track <link>";
 
-    public Track(ScrapperWebService webService) {
+    public TrackCommand(ScrapperWebService webService) {
         super(COMMAND, DESCRIPTION);
         this.webService = webService;
     }

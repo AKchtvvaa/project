@@ -1,17 +1,16 @@
 package ru.tinkoff.edu.java.scrapper.configuration;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.validation.annotation.Validated;
 import java.time.Duration;
 
+
 @EnableScheduling
 @Validated
-@Getter
-@Setter
+@Data
 @ConfigurationProperties(prefix = "app", ignoreUnknownFields = false)
 @Configuration
 public class ApplicationConfig {
@@ -21,22 +20,19 @@ public class ApplicationConfig {
     private StackOverflow stackOverflow;
 
     @Validated
-    @Getter
-    @Setter
+    @Data
     public static class Scheduler {
         private Duration interval;
     }
 
     @Validated
-    @Getter
-    @Setter
+    @Data
     public static class GitHub {
         private String url = "https://api.github.com";
     }
 
     @Validated
-    @Getter
-    @Setter
+    @Data
     public static class StackOverflow {
         private String url = "https://stackoverflow.com/2.3";
     }

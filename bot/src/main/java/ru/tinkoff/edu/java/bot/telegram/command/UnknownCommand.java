@@ -8,7 +8,7 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 
 @Component
 @Order(Ordered.LOWEST_PRECEDENCE)
-public class Unknown implements Command {
+public class UnknownCommand implements Command {
     private static final String UNKNOWN_COMMAND_RESPONSE =
             "Неизвестная команда, используйте /help, чтобы получить список команд";
 

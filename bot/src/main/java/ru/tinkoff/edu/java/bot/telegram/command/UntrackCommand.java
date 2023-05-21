@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 @Order(5)
 @Slf4j
 @Component
-public class Untrack extends AbstractCommand {
+public class UntrackCommand extends AbstractCommand {
     private final ScrapperWebService webService;
     private static final String COMMAND = "/untrack";
     private static final String DESCRIPTION = "остановить отслеживание";
@@ -20,7 +20,7 @@ public class Untrack extends AbstractCommand {
     private static final String SUCCESS_RESPONSE = "Ссылка удалена из списка";
     private static final String WRONG_FORMAT_RESPONSE = "Используйте формат: /untrack <link>";
 
-    public Untrack(ScrapperWebService webService) {
+    public UntrackCommand(ScrapperWebService webService) {
         super(COMMAND, DESCRIPTION);
         this.webService = webService;
     }

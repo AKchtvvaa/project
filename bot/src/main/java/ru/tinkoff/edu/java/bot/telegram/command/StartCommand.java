@@ -10,7 +10,7 @@ import ru.tinkoff.edu.java.bot.service.ScrapperWebService;
 @Order(3)
 @Component
 @RequiredArgsConstructor
-public class Start implements Command {
+public class StartCommand implements Command {
     private final ScrapperWebService webService;
     private static final String COMMAND = "/start";
     private static final String WELCOME_MESSAGE = "Бот запущен!";
